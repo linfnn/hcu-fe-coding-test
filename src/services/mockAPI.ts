@@ -1,6 +1,5 @@
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
-// import * as taskData from "../data/tasks.json";
 const baseURL = JSON.stringify(process.env.REACT_APP_BASE_URL);
 const mockData = [
   {
@@ -101,7 +100,6 @@ const api = axios.create({
 // initial mock adapter
 const mock = new MockAdapter(api, { delayResponse: 300 });
 // Mock Endpoints
-// mock.onGet("/tasks").reply(200, mockData);
 mock.onGet("/tasks").reply((config) => {
   // Lấy query parameters từ config.params
   const { page, search } = config.params;
@@ -110,11 +108,9 @@ mock.onGet("/tasks").reply((config) => {
   if (search === "all") {
     return [200, { data: mockData.slice(start, end), total: mockData.length }];
   } else {
-    // Lọc dữ liệu theo query parameter
     const filteredTasks = mockData.filter(
       (task) => task.is_completed === JSON.parse(search)
     );
-    // Trả về dữ liệu đã lọc
     return [
       200,
       { data: filteredTasks.slice(start, end), total: filteredTasks.length },
@@ -137,7 +133,7 @@ mock.onPatch(/\/tasks\/\d+/).reply((config): any => {
   if (!config.url) {
     return [400, { message: "Bad request: URL is missing" }];
   }
-  // Lấy ID từ URL
+
   const param = config.url.split("/").pop();
 
   if (param) {

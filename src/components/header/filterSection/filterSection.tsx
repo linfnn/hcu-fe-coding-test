@@ -11,7 +11,6 @@ export const FilterSection = () => {
   };
 
   return (
-    // sx={{ minWidth: 240 }}
     <Box className="w-[200px] max-md:w-28">
       <FormControl fullWidth>
         <InputLabel variant="standard" htmlFor="uncontrolled-native">

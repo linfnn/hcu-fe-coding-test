@@ -1,6 +1,5 @@
 import  { createContext, useState } from "react";
 
-// Tạo Context
 export const ModalContext = createContext({
   isCreateModalOpen: false,
   alertModal: {
