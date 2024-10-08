@@ -28,6 +28,9 @@ Filter task by status (Completed / Incomplete / All).
 Add new task with a button => show create modal => fill new task => call API to create. \
 Update task's status by marking a checkbox. 
 
+Set up Prettier for code formatting to ensure consistent code style.\
+Configure ESLint to enforce coding standards and catch potential errors.
+
 ## Libraries/Dependencies:
 [TypeScript](https://www.typescriptlang.org/)\
 [axios]()\
